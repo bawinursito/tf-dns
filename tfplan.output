@@ -1,0 +1,425 @@
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.dns.aws_route53_record.this["development.winursito.com"] will be created
+  + resource "aws_route53_record" "this" {
+      + allow_overwrite = (known after apply)
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = "development.winursito.com"
+      + records         = [
+          + "10.1.1.1",
+        ]
+      + ttl             = 300
+      + type            = "A"
+      + zone_id         = (known after apply)
+    }
+
+  # module.dns.aws_route53_record.this["www.agung.com"] will be created
+  + resource "aws_route53_record" "this" {
+      + allow_overwrite = (known after apply)
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = "www.agung.com"
+      + records         = [
+          + "202.202.202.10",
+          + "202.202.202.2",
+        ]
+      + ttl             = 300
+      + type            = "A"
+      + zone_id         = (known after apply)
+    }
+
+  # module.dns.aws_route53_record.this["www.bayu.com"] will be created
+  + resource "aws_route53_record" "this" {
+      + allow_overwrite = (known after apply)
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = "www.bayu.com"
+      + records         = [
+          + "202.202.202.1",
+          + "202.202.202.2",
+        ]
+      + ttl             = 300
+      + type            = "A"
+      + zone_id         = (known after apply)
+    }
+
+  # module.dns.aws_route53_record.this["www2.agung.com"] will be created
+  + resource "aws_route53_record" "this" {
+      + allow_overwrite = (known after apply)
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = "www2.agung.com"
+      + records         = [
+          + "www.bayu.com",
+        ]
+      + set_identifier  = "indonesia-www.agung.com"
+      + ttl             = 300
+      + type            = "CNAME"
+      + zone_id         = (known after apply)
+
+      + geolocation_routing_policy {
+          + country = "ID"
+        }
+    }
+
+  # module.dns.aws_route53_record.this["www2.bayu.com"] will be created
+  + resource "aws_route53_record" "this" {
+      + allow_overwrite = (known after apply)
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = "www2.bayu.com"
+      + records         = [
+          + "www.bayu.com",
+        ]
+      + set_identifier  = "indonesia-www.bayu.com"
+      + ttl             = 300
+      + type            = "CNAME"
+      + zone_id         = (known after apply)
+
+      + geolocation_routing_policy {
+          + country = "ID"
+        }
+    }
+
+  # module.dns.aws_route53_record.this["www3.agung.com"] will be created
+  + resource "aws_route53_record" "this" {
+      + allow_overwrite = (known after apply)
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = "www3.agung.com"
+      + records         = [
+          + "202.202.202.4",
+          + "202.202.202.5",
+        ]
+      + ttl             = 300
+      + type            = "A"
+      + zone_id         = (known after apply)
+    }
+
+  # module.dns.aws_route53_record.this["www3.bayu.com"] will be created
+  + resource "aws_route53_record" "this" {
+      + allow_overwrite = (known after apply)
+      + fqdn            = (known after apply)
+      + id              = (known after apply)
+      + name            = "www3.bayu.com"
+      + records         = [
+          + "202.202.202.4",
+          + "202.202.202.5",
+        ]
+      + ttl             = 300
+      + type            = "A"
+      + zone_id         = (known after apply)
+    }
+
+  # module.dns.aws_route53_zone.this["agung.com"] will be created
+  + resource "aws_route53_zone" "this" {
+      + arn                 = (known after apply)
+      + comment             = "Managed by Terraform"
+      + force_destroy       = false
+      + id                  = (known after apply)
+      + name                = "agung.com"
+      + name_servers        = (known after apply)
+      + primary_name_server = (known after apply)
+      + tags                = {
+          + "bu"  = "agung"
+          + "env" = "development"
+        }
+      + tags_all            = {
+          + "bu"  = "agung"
+          + "env" = "development"
+        }
+      + zone_id             = (known after apply)
+    }
+
+  # module.dns.aws_route53_zone.this["bayu.com"] will be created
+  + resource "aws_route53_zone" "this" {
+      + arn                 = (known after apply)
+      + comment             = "Managed by Terraform"
+      + force_destroy       = false
+      + id                  = (known after apply)
+      + name                = "bayu.com"
+      + name_servers        = (known after apply)
+      + primary_name_server = (known after apply)
+      + tags                = {
+          + "bu"  = "bayu"
+          + "env" = "development"
+        }
+      + tags_all            = {
+          + "bu"  = "bayu"
+          + "env" = "development"
+        }
+      + zone_id             = (known after apply)
+    }
+
+  # module.dns.aws_route53_zone.this["winursito.local"] will be created
+  + resource "aws_route53_zone" "this" {
+      + arn                 = (known after apply)
+      + comment             = "Managed by Terraform"
+      + force_destroy       = false
+      + id                  = (known after apply)
+      + name                = "winursito.local"
+      + name_servers        = (known after apply)
+      + primary_name_server = (known after apply)
+      + tags                = {
+          + "bu"  = "winursito"
+          + "env" = "development"
+        }
+      + tags_all            = {
+          + "bu"  = "winursito"
+          + "env" = "development"
+        }
+      + zone_id             = (known after apply)
+
+      + vpc {
+          + vpc_id     = "vpc-0513b6f6171e730c8"
+          + vpc_region = (known after apply)
+        }
+      + vpc {
+          + vpc_id     = "vpc-0c9d9e903bbdc1b92"
+          + vpc_region = (known after apply)
+        }
+    }
+
+Plan: 10 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + dns_records = {
+      + "development.winursito.com" = {
+          + alias                            = []
+          + allow_overwrite                  = (known after apply)
+          + cidr_routing_policy              = []
+          + failover_routing_policy          = []
+          + fqdn                             = (known after apply)
+          + geolocation_routing_policy       = []
+          + health_check_id                  = null
+          + id                               = (known after apply)
+          + latency_routing_policy           = []
+          + multivalue_answer_routing_policy = null
+          + name                             = "development.winursito.com"
+          + records                          = [
+              + "10.1.1.1",
+            ]
+          + set_identifier                   = null
+          + ttl                              = 300
+          + type                             = "A"
+          + weighted_routing_policy          = []
+          + zone_id                          = (known after apply)
+        }
+      + "www.agung.com"             = {
+          + alias                            = []
+          + allow_overwrite                  = (known after apply)
+          + cidr_routing_policy              = []
+          + failover_routing_policy          = []
+          + fqdn                             = (known after apply)
+          + geolocation_routing_policy       = []
+          + health_check_id                  = null
+          + id                               = (known after apply)
+          + latency_routing_policy           = []
+          + multivalue_answer_routing_policy = null
+          + name                             = "www.agung.com"
+          + records                          = [
+              + "202.202.202.10",
+              + "202.202.202.2",
+            ]
+          + set_identifier                   = null
+          + ttl                              = 300
+          + type                             = "A"
+          + weighted_routing_policy          = []
+          + zone_id                          = (known after apply)
+        }
+      + "www.bayu.com"              = {
+          + alias                            = []
+          + allow_overwrite                  = (known after apply)
+          + cidr_routing_policy              = []
+          + failover_routing_policy          = []
+          + fqdn                             = (known after apply)
+          + geolocation_routing_policy       = []
+          + health_check_id                  = null
+          + id                               = (known after apply)
+          + latency_routing_policy           = []
+          + multivalue_answer_routing_policy = null
+          + name                             = "www.bayu.com"
+          + records                          = [
+              + "202.202.202.1",
+              + "202.202.202.2",
+            ]
+          + set_identifier                   = null
+          + ttl                              = 300
+          + type                             = "A"
+          + weighted_routing_policy          = []
+          + zone_id                          = (known after apply)
+        }
+      + "www2.agung.com"            = {
+          + alias                            = []
+          + allow_overwrite                  = (known after apply)
+          + cidr_routing_policy              = []
+          + failover_routing_policy          = []
+          + fqdn                             = (known after apply)
+          + geolocation_routing_policy       = [
+              + {
+                  + continent   = null
+                  + country     = "ID"
+                  + subdivision = null
+                },
+            ]
+          + health_check_id                  = null
+          + id                               = (known after apply)
+          + latency_routing_policy           = []
+          + multivalue_answer_routing_policy = null
+          + name                             = "www2.agung.com"
+          + records                          = [
+              + "www.bayu.com",
+            ]
+          + set_identifier                   = "indonesia-www.agung.com"
+          + ttl                              = 300
+          + type                             = "CNAME"
+          + weighted_routing_policy          = []
+          + zone_id                          = (known after apply)
+        }
+      + "www2.bayu.com"             = {
+          + alias                            = []
+          + allow_overwrite                  = (known after apply)
+          + cidr_routing_policy              = []
+          + failover_routing_policy          = []
+          + fqdn                             = (known after apply)
+          + geolocation_routing_policy       = [
+              + {
+                  + continent   = null
+                  + country     = "ID"
+                  + subdivision = null
+                },
+            ]
+          + health_check_id                  = null
+          + id                               = (known after apply)
+          + latency_routing_policy           = []
+          + multivalue_answer_routing_policy = null
+          + name                             = "www2.bayu.com"
+          + records                          = [
+              + "www.bayu.com",
+            ]
+          + set_identifier                   = "indonesia-www.bayu.com"
+          + ttl                              = 300
+          + type                             = "CNAME"
+          + weighted_routing_policy          = []
+          + zone_id                          = (known after apply)
+        }
+      + "www3.agung.com"            = {
+          + alias                            = []
+          + allow_overwrite                  = (known after apply)
+          + cidr_routing_policy              = []
+          + failover_routing_policy          = []
+          + fqdn                             = (known after apply)
+          + geolocation_routing_policy       = []
+          + health_check_id                  = null
+          + id                               = (known after apply)
+          + latency_routing_policy           = []
+          + multivalue_answer_routing_policy = null
+          + name                             = "www3.agung.com"
+          + records                          = [
+              + "202.202.202.4",
+              + "202.202.202.5",
+            ]
+          + set_identifier                   = null
+          + ttl                              = 300
+          + type                             = "A"
+          + weighted_routing_policy          = []
+          + zone_id                          = (known after apply)
+        }
+      + "www3.bayu.com"             = {
+          + alias                            = []
+          + allow_overwrite                  = (known after apply)
+          + cidr_routing_policy              = []
+          + failover_routing_policy          = []
+          + fqdn                             = (known after apply)
+          + geolocation_routing_policy       = []
+          + health_check_id                  = null
+          + id                               = (known after apply)
+          + latency_routing_policy           = []
+          + multivalue_answer_routing_policy = null
+          + name                             = "www3.bayu.com"
+          + records                          = [
+              + "202.202.202.4",
+              + "202.202.202.5",
+            ]
+          + set_identifier                   = null
+          + ttl                              = 300
+          + type                             = "A"
+          + weighted_routing_policy          = []
+          + zone_id                          = (known after apply)
+        }
+    }
+  + dns_zones   = {
+      + "agung.com"       = {
+          + arn                 = (known after apply)
+          + comment             = "Managed by Terraform"
+          + delegation_set_id   = null
+          + force_destroy       = false
+          + id                  = (known after apply)
+          + name                = "agung.com"
+          + name_servers        = (known after apply)
+          + primary_name_server = (known after apply)
+          + tags                = {
+              + bu  = "agung"
+              + env = "development"
+            }
+          + tags_all            = {
+              + bu  = "agung"
+              + env = "development"
+            }
+          + vpc                 = []
+          + zone_id             = (known after apply)
+        }
+      + "bayu.com"        = {
+          + arn                 = (known after apply)
+          + comment             = "Managed by Terraform"
+          + delegation_set_id   = null
+          + force_destroy       = false
+          + id                  = (known after apply)
+          + name                = "bayu.com"
+          + name_servers        = (known after apply)
+          + primary_name_server = (known after apply)
+          + tags                = {
+              + bu  = "bayu"
+              + env = "development"
+            }
+          + tags_all            = {
+              + bu  = "bayu"
+              + env = "development"
+            }
+          + vpc                 = []
+          + zone_id             = (known after apply)
+        }
+      + "winursito.local" = {
+          + arn                 = (known after apply)
+          + comment             = "Managed by Terraform"
+          + delegation_set_id   = null
+          + force_destroy       = false
+          + id                  = (known after apply)
+          + name                = "winursito.local"
+          + name_servers        = (known after apply)
+          + primary_name_server = (known after apply)
+          + tags                = {
+              + bu  = "winursito"
+              + env = "development"
+            }
+          + tags_all            = {
+              + bu  = "winursito"
+              + env = "development"
+            }
+          + vpc                 = [
+              + {
+                  + vpc_id     = "vpc-0513b6f6171e730c8"
+                  + vpc_region = (known after apply)
+                },
+              + {
+                  + vpc_id     = "vpc-0c9d9e903bbdc1b92"
+                  + vpc_region = (known after apply)
+                },
+            ]
+          + zone_id             = (known after apply)
+        }
+    }
